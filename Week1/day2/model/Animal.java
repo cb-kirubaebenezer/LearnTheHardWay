@@ -8,22 +8,31 @@ public class Animal extends Mammal implements IBehaviour {
     private String breed;
     private Boolean isAlive;
     
-    public Animal(String species, String gender, Integer age, String foodHabit,String type, String breed, Boolean isAlive){
+    public Animal(String species, String gender, Integer age, String foodHabit){
         super(species,gender,age,foodHabit);
+    }
+    public void setType(String type){
         this.type = type;
-        this.breed = breed;
-        this.isAlive = isAlive;
     }
     public String getType(){
         return type;
     }
+
+    public void setBreed(String breed){
+        this.breed = breed;
+    }
     public String getBreed(){
         return breed;
+    }
+
+    public void setIsAlive(Boolean isAlive){
+        this.isAlive = isAlive;
     }
     public Boolean getIsAlive(){
         return isAlive;
     }
 
+    
     public void eat(){
         super.eat();
         UtilityMethods.print("Animals eat grass to elephant. Which animal you'r referring to?");

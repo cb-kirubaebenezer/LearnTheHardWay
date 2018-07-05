@@ -1,7 +1,8 @@
 import day1.*;
+import day2.dogcontroller.*;
 import day2.model.*;
 import utilities.*;
-import java.util.*;  
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         try {
@@ -40,10 +41,24 @@ public class Main {
     public static void day2(){
         try {
             UtilityMethods.print("---------------");   
-            Dog dog = new Dog("Animal", "Male",20,"Carnivores","Dog","Labrador",true,"Jude",true,true);
-            dog.eat();
-            dog.walk();
-            dog.speak();
+            DogGenerator dogGenerator = new DogGenerator();
+            DogBuilder labradorDogBuilder = new LabradorBuilder();
+            dogGenerator.setDogBuilder(labradorDogBuilder);
+            dogGenerator.constructDog("Animal", "Male",20,"Carnivores");
+            Dog labradordog = dogGenerator.getDog();
+            labradordog.eat();
+            labradordog.speak();
+            labradordog.walk();
+
+            DogBuilder goldenRetriver = new GoldenRetriverBuilder();
+            dogGenerator.setDogBuilder(goldenRetriver);
+            dogGenerator.constructDog("Animal", "Male",20,"Carnivores");
+            Dog godlenRetriverdog = dogGenerator.getDog();
+            godlenRetriverdog.eat();
+            godlenRetriverdog.speak();
+            godlenRetriverdog.walk();
+            
+
             UtilityMethods.print("---------------");   
             Bat bat = new Bat("Bird", "Female",20,"Scavangers","Bat","ManEaters",true,"Jude",false,true);
             bat.eat();
