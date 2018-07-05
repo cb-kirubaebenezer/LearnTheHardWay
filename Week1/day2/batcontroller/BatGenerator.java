@@ -13,7 +13,7 @@ public class BatGenerator{
         batBuilder.buildType();
         batBuilder.buildBreed();
         batBuilder.buildIsAlive(true);
-        batBuilder.buildWithName("Jade");
+        batBuilder.buildWithName("Jade Smith");
         batBuilder.buildFriendliness(true);
         batBuilder.buildEatNonVeg(true);
     }

@@ -47,28 +47,36 @@ public class Main {
             dogGenerator.setDogBuilder(labradorDogBuilder);
             dogGenerator.constructDog("Animal", "Male",20,"Carnivores");
             Dog labradordog = dogGenerator.getDog();
-            labradordog.eat();
-            labradordog.speak();
-            labradordog.walk();
+            // labradordog.eat();
+            // labradordog.speak();
+            // labradordog.walk();
 
             UtilityMethods.print("\n\nCreating golden retriver....................\n\n"); 
             DogBuilder goldenRetriver = new GoldenRetriverBuilder();
             dogGenerator.setDogBuilder(goldenRetriver);
             dogGenerator.constructDog("Animal", "Male",20,"Carnivores");
             Dog goldenRetriverdog = dogGenerator.getDog();
-            goldenRetriverdog.eat();
-            goldenRetriverdog.speak();
-            goldenRetriverdog.walk();
+            // goldenRetriverdog.eat();
+            // goldenRetriverdog.speak();
+            // goldenRetriverdog.walk();
             
+            ArrayList<Dog> dogs = new ArrayList<Dog>();
+            dogs.add(labradordog);
+            dogs.add(goldenRetriverdog);
+
+            for (Dog dog : Dog.getDogListMatchWithAttributs(dogs, "Friendly", true) ) {
+                UtilityMethods.print(dog.getName());
+            }
+
             UtilityMethods.print("\n\nCreating Big bat....................\n\n"); 
             BatGenerator batGenerator = new BatGenerator();
             BatBuilder bigBatBuilder = new BigBatBuilder();
             batGenerator.setBatBuilder(bigBatBuilder);
             batGenerator.constructBat("Bat", "Male",25,"Scavenger");
             Bat bigBat = bigBatBuilder.getBat();
-            bigBat.eat();
-            bigBat.speak();
-            bigBat.walk();
+            // bigBat.eat();
+            // bigBat.speak();
+            // bigBat.walk();
             
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());   

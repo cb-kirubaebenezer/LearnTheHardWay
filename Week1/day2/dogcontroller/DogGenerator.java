@@ -13,7 +13,7 @@ public class DogGenerator{
         dogBuilder.buildType();
         dogBuilder.buildBreed();
         dogBuilder.buildIsAlive(true);
-        dogBuilder.buildWithName("Jade");
+        dogBuilder.buildWithName("Justin Bieber");
         dogBuilder.buildFriendliness(true);
         dogBuilder.buildRetriveness(true);
     }
