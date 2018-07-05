@@ -8,11 +8,8 @@ public class Bird extends Mammal implements IBehaviour {
     private String breed;
     private Boolean isAlive;
 
-    public Bird(String species, String gender, Integer age, String foodHabit,String type, String breed, Boolean isAlive){
+    public Bird(String species, String gender, Integer age, String foodHabit){
         super(species,gender,age,foodHabit);
-        this.type = type;
-        this.breed = breed;
-        this.isAlive = isAlive;
     }
     
     public String getType(){
@@ -23,6 +20,16 @@ public class Bird extends Mammal implements IBehaviour {
     }
     public Boolean getIsAlive(){
         return isAlive;
+    }
+
+    public void setType(String type){
+        this.type = type;
+    }
+    public void setBreed(String breed){
+        this.breed = breed;
+    }
+    public void setIsAlive(Boolean isAlive){
+        this.isAlive = isAlive;
     }
 
     public void eat(){

@@ -1,4 +1,5 @@
 import day1.*;
+import day2.batcontroller.*;
 import day2.dogcontroller.*;
 import day2.model.*;
 import utilities.*;
@@ -40,7 +41,7 @@ public class Main {
     } 
     public static void day2(){
         try {
-            UtilityMethods.print("---------------");   
+            UtilityMethods.print("\n\nCreating labrador....................\n\n");   
             DogGenerator dogGenerator = new DogGenerator();
             DogBuilder labradorDogBuilder = new LabradorBuilder();
             dogGenerator.setDogBuilder(labradorDogBuilder);
@@ -50,20 +51,25 @@ public class Main {
             labradordog.speak();
             labradordog.walk();
 
+            UtilityMethods.print("\n\nCreating golden retriver....................\n\n"); 
             DogBuilder goldenRetriver = new GoldenRetriverBuilder();
             dogGenerator.setDogBuilder(goldenRetriver);
             dogGenerator.constructDog("Animal", "Male",20,"Carnivores");
-            Dog godlenRetriverdog = dogGenerator.getDog();
-            godlenRetriverdog.eat();
-            godlenRetriverdog.speak();
-            godlenRetriverdog.walk();
+            Dog goldenRetriverdog = dogGenerator.getDog();
+            goldenRetriverdog.eat();
+            goldenRetriverdog.speak();
+            goldenRetriverdog.walk();
             
-
-            UtilityMethods.print("---------------");   
-            Bat bat = new Bat("Bird", "Female",20,"Scavangers","Bat","ManEaters",true,"Jude",false,true);
-            bat.eat();
-            bat.walk();
-            bat.speak(); 
+            UtilityMethods.print("\n\nCreating Big bat....................\n\n"); 
+            BatGenerator batGenerator = new BatGenerator();
+            BatBuilder bigBatBuilder = new BigBatBuilder();
+            batGenerator.setBatBuilder(bigBatBuilder);
+            batGenerator.constructBat("Bat", "Male",25,"Scavenger");
+            Bat bigBat = bigBatBuilder.getBat();
+            bigBat.eat();
+            bigBat.speak();
+            bigBat.walk();
+            
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());   
         }

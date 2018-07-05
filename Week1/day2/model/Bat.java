@@ -7,18 +7,26 @@ public class Bat extends Bird implements IBehaviour{
     private String name;
     private Boolean isFriendly;
     private Boolean isNonVeg;
-    public Bat(String species, String gender, Integer age, String foodHabit,String type, String breed, Boolean isAlive,String name, Boolean isFriendly, Boolean isNonVeg){
-        super(species,gender,age,foodHabit,type,breed,isAlive);
-        this.name = name;
-        this.isFriendly = isFriendly;
-        this.isNonVeg = isNonVeg;
+    public Bat(String species, String gender, Integer age, String foodHabit){
+        super(species,gender,age,foodHabit);
     }
     
+    public void setName(String name){
+        this.name = name;
+    } 
     public String getName(){
         return name;
     }
+
+    public void setIsFriendly(Boolean isFriendly){
+        this.isFriendly = isFriendly;
+    }
     public Boolean getIsFriendly(){
         return isFriendly;
+    }
+
+    public void setIsNonVeg(Boolean isNonVeg){
+        this.isNonVeg = isNonVeg;
     }
     public Boolean getIsNonVeg(){
         return isNonVeg;
