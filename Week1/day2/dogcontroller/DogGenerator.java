@@ -1,5 +1,6 @@
 package day2.dogcontroller;
 import day2.model.*;
+import utilities.*;
 public class DogGenerator{
     private DogBuilder dogBuilder;
     public void setDogBuilder(DogBuilder dogBuilder){
@@ -9,12 +10,16 @@ public class DogGenerator{
         return dogBuilder.getDog();
     }
     public void constructDog(String species, String gender, Integer age, String foodHabit){
-        dogBuilder.createADog(species, gender, age, foodHabit);
-        dogBuilder.buildType();
-        dogBuilder.buildBreed();
-        dogBuilder.buildIsAlive(true);
-        dogBuilder.buildWithName("Justin Bieber");
-        dogBuilder.buildFriendliness(true);
-        dogBuilder.buildRetriveness(true);
+        try {
+            dogBuilder.createADog(species, gender, age, foodHabit);
+            dogBuilder.buildType();
+            dogBuilder.buildBreed();
+            dogBuilder.buildIsAlive(true);
+            dogBuilder.buildWithName("Justin Bieber");
+            dogBuilder.buildFriendliness(true);
+            dogBuilder.buildRetriveness(true);
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
 }

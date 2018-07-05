@@ -37,59 +37,75 @@ public class Dog extends Animal implements IBehaviour{
 
 
     public void eat(){
-        super.eat();
-        UtilityMethods.print("I am a dog.! Born to eat.");
+        try {
+            super.eat();
+            UtilityMethods.print("I am a dog.! Born to eat.");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }   
     }
     public void speak(){
-        super.speak();
-        UtilityMethods.print("I am barking...");
+        try {
+            super.speak();
+            UtilityMethods.print("I am barking...");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
     public void walk(){
-        super.walk();
-        UtilityMethods.print("I have four legs. I can run tooo......");
+        try {
+            super.walk();
+            UtilityMethods.print("I have four legs. I can run tooo......");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
 
     public static ArrayList<Dog> getDogListMatchWithAttributs(ArrayList<Dog> dogs, String attribute, Boolean status){
         // Inner Class
-        class DogWithAttributes{
-            private ArrayList<Dog> dogs;
-            private Boolean status;
-            DogWithAttributes(ArrayList<Dog> dogs,Boolean status){
-                this.dogs = dogs;
-                this.status = status;
-            }
-            protected ArrayList<Dog> getDogsMatchStatusWithFriendly(){
-                ArrayList<Dog> dogsFreindlyList = new ArrayList<Dog>();
-                for (Dog  dog : dogs) {
-                    if(status == true){
-                        if(dog.getIsFriendly())
-                            dogsFreindlyList.add(dog);
-                    }else{
-                        if(! (dog.getIsFriendly()))
-                            dogsFreindlyList.add(dog);
-                    }
+        try {
+            class DogWithAttributes{
+                private ArrayList<Dog> dogs;
+                private Boolean status;
+                DogWithAttributes(ArrayList<Dog> dogs,Boolean status){
+                    this.dogs = dogs;
+                    this.status = status;
                 }
-                return dogsFreindlyList;
-            }
-            protected ArrayList<Dog> getDogsMatchStatusWithRetrieveness(){
-                ArrayList<Dog> dogsRetriverList = new ArrayList<Dog>();
-                for (Dog  dog : dogs) {
-                    if(status == true){
-                        if(dog.getIsRetriever())
-                            dogsRetriverList.add(dog);
-                    }else{
-                        if(! (dog.getIsRetriever()))
-                            dogsRetriverList.add(dog);
+                protected ArrayList<Dog> getDogsMatchStatusWithFriendly(){
+                    ArrayList<Dog> dogsFreindlyList = new ArrayList<Dog>();
+                    for (Dog  dog : dogs) {
+                        if(status == true){
+                            if(dog.getIsFriendly())
+                                dogsFreindlyList.add(dog);
+                        }else{
+                            if(! (dog.getIsFriendly()))
+                                dogsFreindlyList.add(dog);
+                        }
                     }
+                    return dogsFreindlyList;
                 }
-                return dogsRetriverList;
+                protected ArrayList<Dog> getDogsMatchStatusWithRetrieveness(){
+                    ArrayList<Dog> dogsRetriverList = new ArrayList<Dog>();
+                    for (Dog  dog : dogs) {
+                        if(status == true){
+                            if(dog.getIsRetriever())
+                                dogsRetriverList.add(dog);
+                        }else{
+                            if(! (dog.getIsRetriever()))
+                                dogsRetriverList.add(dog);
+                        }
+                    }
+                    return dogsRetriverList;
+                }
             }
+            DogWithAttributes dogWithAttributes = new DogWithAttributes(dogs,status);
+            if(attribute.equals("Friendly"))
+                return dogWithAttributes.getDogsMatchStatusWithFriendly();
+            else if(attribute.equals("Retreiver"))
+                return dogWithAttributes.getDogsMatchStatusWithRetrieveness();
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
         }
-        DogWithAttributes dogWithAttributes = new DogWithAttributes(dogs,status);
-        if(attribute.equals("Friendly"))
-            return dogWithAttributes.getDogsMatchStatusWithFriendly();
-        else if(attribute.equals("Retreiver"))
-            return dogWithAttributes.getDogsMatchStatusWithRetrieveness();
         return dogs;
     }
 }

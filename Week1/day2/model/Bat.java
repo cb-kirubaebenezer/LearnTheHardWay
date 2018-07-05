@@ -33,12 +33,24 @@ public class Bat extends Bird implements IBehaviour{
     }
 
     public void eat(){
-        UtilityMethods.print("I am a Bat.! Born to fly.");
+        try {
+            UtilityMethods.print("I am a Bat.! Born to fly.");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
     public void speak(){
-        UtilityMethods.print("I cannot speak...");
+        try {
+            UtilityMethods.print("I cannot speak...");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
     public void walk(){
-        UtilityMethods.print("I fly high in the sky......");
+        try {
+            UtilityMethods.print("I fly high in the sky......");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
 }

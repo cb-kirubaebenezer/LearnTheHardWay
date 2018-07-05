@@ -31,12 +31,24 @@ public class Mammal implements IBehaviour{
     }
 
     public void eat(){
-        UtilityMethods.print("Yaas. All mammals have to eat");
+        try {
+            UtilityMethods.print("Yaas. All mammals have to eat");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
     public void speak(){
-        UtilityMethods.print("Naah Naah. Speaking ain't a thing here.");
+        try {
+            UtilityMethods.print("Naah Naah. Speaking ain't a thing here.");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
     public void walk(){
-        UtilityMethods.print("Yaas. Walk Errhhh....");
+        try {
+            UtilityMethods.print("Yaas. Walk Errhhh....");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
 }

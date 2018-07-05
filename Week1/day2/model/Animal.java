@@ -34,15 +34,27 @@ public class Animal extends Mammal implements IBehaviour {
 
     
     public void eat(){
-        super.eat();
-        UtilityMethods.print("Animals eat grass to elephant. Which animal you'r referring to?");
+        try {
+            super.eat();
+            UtilityMethods.print("Animals eat grass to elephant. Which animal you'r referring to?");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }      
     }
     public void speak(){
-        super.speak();
-        UtilityMethods.print("We do bark, meow, grunt, roar.!!!");
+        try {
+            super.speak();
+            UtilityMethods.print("We do bark, meow, grunt, roar.!!!");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
     public void walk(){
-        super.walk();
-        UtilityMethods.print("We walk to survive. We run to live.");
+        try {
+            super.walk();
+            UtilityMethods.print("We walk to survive. We run to live.");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
 }

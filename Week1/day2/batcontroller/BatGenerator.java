@@ -1,5 +1,6 @@
 package day2.batcontroller;
 import day2.model.*;
+import utilities.UtilityMethods;
 public class BatGenerator{
     private BatBuilder batBuilder;
     public void setBatBuilder(BatBuilder batBuilder){
@@ -9,12 +10,16 @@ public class BatGenerator{
         return batBuilder.getBat();
     }
     public void constructBat(String species, String gender, Integer age, String foodHabit){
-        batBuilder.createABat(species, gender, age, foodHabit);
-        batBuilder.buildType();
-        batBuilder.buildBreed();
-        batBuilder.buildIsAlive(true);
-        batBuilder.buildWithName("Jade Smith");
-        batBuilder.buildFriendliness(true);
-        batBuilder.buildEatNonVeg(true);
+        try {
+            batBuilder.createABat(species, gender, age, foodHabit);
+            batBuilder.buildType();
+            batBuilder.buildBreed();
+            batBuilder.buildIsAlive(true);
+            batBuilder.buildWithName("Jade Smith");
+            batBuilder.buildFriendliness(true);
+            batBuilder.buildEatNonVeg(true);
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
 }

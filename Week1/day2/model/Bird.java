@@ -33,12 +33,24 @@ public class Bird extends Mammal implements IBehaviour {
     }
 
     public void eat(){
-        UtilityMethods.print("Birds eat fruits to human. Which bird you'r referring to?");
+        try {
+            UtilityMethods.print("Birds eat fruits to human. Which bird you'r referring to?");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
     public void speak(){
-        UtilityMethods.print("We don't speak.");
+        try {
+            UtilityMethods.print("We don't speak.");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
     public void walk(){
-        UtilityMethods.print("We fly.");
+        try {
+            UtilityMethods.print("We fly.");
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
     }
 }
