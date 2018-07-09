@@ -8,8 +8,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         try {
-            day1(args);
+            //day1(args);
             day2();
+
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());
         }
@@ -96,9 +97,15 @@ public class Main {
             ArrayList<Dog> dogs = new ArrayList<Dog>();
             dogs.add(createLabrador());
             dogs.add(createGolderRetriver());
-            for (Dog dog : Dog.getDogListMatchWithAttributs(dogs, "Friendly", true) ) {
-                UtilityMethods.print(dog.getName());
+
+            //Lambda expressions
+            for (Dog dog : Dog.getDogList(dogs,   
+                    d -> !(d.getIsRetriever()) && 
+                         !(d.getIsFriendly()) 
+                    )){
+                        UtilityMethods.print(dog.getName());
             }
+
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());   
         }
