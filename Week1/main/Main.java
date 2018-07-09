@@ -97,14 +97,12 @@ public class Main {
             ArrayList<Dog> dogs = new ArrayList<Dog>();
             dogs.add(createLabrador());
             dogs.add(createGolderRetriver());
-
-            //Lambda expressions
-            for (Dog dog : Dog.getDogList(dogs,   
-                                        d -> !(d.getIsRetriever()) && 
-                                            !(d.getIsFriendly()) 
-                                        )){
-                UtilityMethods.print(dog.getName());
-            }
+            Dog.getDogList(
+                dogs, 
+                d -> (d.getIsRetriever()) 
+                    && (d.getIsFriendly()), 
+                o -> UtilityMethods.print(o.getName())
+                );
 
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());   

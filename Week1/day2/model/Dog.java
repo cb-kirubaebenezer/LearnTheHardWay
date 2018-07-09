@@ -3,6 +3,7 @@ import utilities.*;
 import day2.interfaces.*;
 
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 import day2.*;
@@ -62,19 +63,24 @@ public class Dog extends Animal implements IBehaviour{
         }
     }
 
-    public static ArrayList<Dog> getDogList(ArrayList<Dog> dogs, Predicate<Dog> tester){
-        ArrayList<Dog> dogsList = new ArrayList<Dog>();
+    public static void getDogList(
+        ArrayList<Dog> dogs, 
+        Predicate<Dog> tester,
+        Consumer<Dog> block){
+        // print all the dogs with predicated attributes   
         try {
             for (Dog dog : dogs) 
             if(tester.test(dog))
-                dogsList.add(dog);
+                block.accept(dog);
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());
         }
-        return dogsList;
     }
-    
-    public static ArrayList<Dog> getDogListMatchWithAttributs(ArrayList<Dog> dogs, String attribute, Boolean status){
+
+    public static ArrayList<Dog> getDogListMatchWithAttributs(
+        ArrayList<Dog> dogs, 
+        String attribute, 
+        Boolean status){
         // Inner Class
         try {
             class DogWithAttributes{
