@@ -2,6 +2,8 @@ import day1.*;
 import day2.batcontroller.*;
 import day2.dogcontroller.*;
 import day2.model.*;
+import day3.controller.CarFactory;
+import day3.model.*;
 import utilities.*;
 import java.util.*;
 
@@ -9,8 +11,8 @@ public class Main {
     public static void main(String[] args) {
         try {
            // day1(args);
-            day2();
-
+            // day2();
+            day3();
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());
         }
@@ -112,6 +114,17 @@ public class Main {
             ArrayList<Dog> dogs = new ArrayList<Dog>();
             dogs.add(createLabrador());
             dogs.add(createGolderRetriver());
+            
+            //Aggregation
+            dogs
+            .stream()
+            .filter(
+                d -> (d.getIsRetriever()) 
+                && (d.getIsFriendly()))
+            .map(p->p.getName())
+            .forEach(name -> UtilityMethods.print(name));
+
+            //lambda expressions
             Dog.getDogList(
                 dogs, 
                 d -> (d.getIsRetriever()) 
@@ -123,5 +136,19 @@ public class Main {
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());   
         }
+    }
+    public static void day3(){
+        try {
+            ArrayList<Car> cars = new ArrayList<Car>();
+            cars.add(CarFactory.getCar("Truck"));
+            cars.add(CarFactory.getCar("Sedan"));
+            cars.add(CarFactory.getCar("Ford"));
+            for (Car car : cars) {
+                UtilityMethods.print(car.getColor());   
+            }
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());   
+        }
+        
     }
 }
