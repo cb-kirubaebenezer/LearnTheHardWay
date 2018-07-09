@@ -4,6 +4,7 @@ import day2.dogcontroller.*;
 import day2.model.*;
 import utilities.*;
 import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
         try {
@@ -40,7 +41,7 @@ public class Main {
         }
         
     } 
-    public static void day2(){
+    private static Dog createLabrador(){
         try {
             UtilityMethods.print("\n\nCreating labrador....................\n\n");   
             DogGenerator dogGenerator = new DogGenerator();
@@ -51,8 +52,16 @@ public class Main {
             labradordog.eat();
             labradordog.speak();
             labradordog.walk();
-
+            return labradordog;
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());   
+        }
+        return null;
+    }
+    private static Dog createGolderRetriver(){
+        try {
             UtilityMethods.print("\n\nCreating golden retriver....................\n\n"); 
+            DogGenerator dogGenerator = new DogGenerator();
             DogBuilder goldenRetriver = new GoldenRetriverBuilder();
             dogGenerator.setDogBuilder(goldenRetriver);
             dogGenerator.constructDog("Animal", "Male",20,"Carnivores");
@@ -60,15 +69,14 @@ public class Main {
             goldenRetriverdog.eat();
             goldenRetriverdog.speak();
             goldenRetriverdog.walk();
-            
-            ArrayList<Dog> dogs = new ArrayList<Dog>();
-            dogs.add(labradordog);
-            dogs.add(goldenRetriverdog);
-
-            for (Dog dog : Dog.getDogListMatchWithAttributs(dogs, "Friendly", true) ) {
-                UtilityMethods.print(dog.getName());
-            }
-
+            return goldenRetriverdog;    
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());   
+        }
+        return null; 
+    }
+    private static Bat createBat(){
+        try {
             UtilityMethods.print("\n\nCreating Big bat....................\n\n"); 
             BatGenerator batGenerator = new BatGenerator();
             BatBuilder bigBatBuilder = new BigBatBuilder();
@@ -78,7 +86,19 @@ public class Main {
             bigBat.eat();
             bigBat.speak();
             bigBat.walk();
-            
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());   
+        }
+        return null; 
+    }
+    public static void day2(){
+        try {
+            ArrayList<Dog> dogs = new ArrayList<Dog>();
+            dogs.add(createLabrador());
+            dogs.add(createGolderRetriver());
+            for (Dog dog : Dog.getDogListMatchWithAttributs(dogs, "Friendly", true) ) {
+                UtilityMethods.print(dog.getName());
+            }
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());   
         }
