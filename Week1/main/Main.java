@@ -48,7 +48,12 @@ public class Main {
             DogGenerator dogGenerator = new DogGenerator();
             DogBuilder labradorDogBuilder = new LabradorBuilder();
             dogGenerator.setDogBuilder(labradorDogBuilder);
-            dogGenerator.constructDog("Animal", "Male",20,"Carnivores");
+            dogGenerator.constructDog(
+                "Animal",
+                "Male",
+                20,
+                "Carnivores"
+            );
             Dog labradordog = dogGenerator.getDog();
             labradordog.eat();
             labradordog.speak();
@@ -65,7 +70,12 @@ public class Main {
             DogGenerator dogGenerator = new DogGenerator();
             DogBuilder goldenRetriver = new GoldenRetriverBuilder();
             dogGenerator.setDogBuilder(goldenRetriver);
-            dogGenerator.constructDog("Animal", "Male",20,"Carnivores");
+            dogGenerator.constructDog(
+                "Animal", 
+                "Male",
+                20,
+                "Carnivores"
+            );
             Dog goldenRetriverdog = dogGenerator.getDog();
             goldenRetriverdog.eat();
             goldenRetriverdog.speak();
@@ -82,7 +92,12 @@ public class Main {
             BatGenerator batGenerator = new BatGenerator();
             BatBuilder bigBatBuilder = new BigBatBuilder();
             batGenerator.setBatBuilder(bigBatBuilder);
-            batGenerator.constructBat("Bat", "Male",25,"Scavenger");
+            batGenerator.constructBat(
+                "Bat", 
+                "Male",
+                25,
+                "Scavenger"
+            );
             Bat bigBat = bigBatBuilder.getBat();
             bigBat.eat();
             bigBat.speak();
