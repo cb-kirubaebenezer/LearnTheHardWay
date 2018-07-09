@@ -8,7 +8,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         try {
-            //day1(args);
+           // day1(args);
             day2();
 
         } catch (Exception e) {
@@ -116,7 +116,8 @@ public class Main {
                 dogs, 
                 d -> (d.getIsRetriever()) 
                     && (d.getIsFriendly()), 
-                o -> UtilityMethods.print(o.getName())
+                m -> m.getName(),
+                o -> UtilityMethods.print(o)
                 );
 
         } catch (Exception e) {

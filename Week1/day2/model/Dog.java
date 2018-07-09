@@ -4,6 +4,7 @@ import day2.interfaces.*;
 
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 import day2.*;
@@ -66,12 +67,15 @@ public class Dog extends Animal implements IBehaviour{
     public static void getDogList(
         ArrayList<Dog> dogs, 
         Predicate<Dog> tester,
-        Consumer<Dog> block){
+        Function<Dog,String> mapper,
+        Consumer<String> block){
         // print all the dogs with predicated attributes   
         try {
             for (Dog dog : dogs) 
-            if(tester.test(dog))
-                block.accept(dog);
+            if(tester.test(dog)){
+                String data = mapper.apply(dog);
+                block.accept(data);
+            }
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());
         }
