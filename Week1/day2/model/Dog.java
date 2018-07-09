@@ -64,11 +64,16 @@ public class Dog extends Animal implements IBehaviour{
 
     public static ArrayList<Dog> getDogList(ArrayList<Dog> dogs, Predicate<Dog> tester){
         ArrayList<Dog> dogsList = new ArrayList<Dog>();
-        for (Dog dog : dogs) 
+        try {
+            for (Dog dog : dogs) 
             if(tester.test(dog))
                 dogsList.add(dog);
+        } catch (Exception e) {
+            UtilityMethods.print(e.getMessage());
+        }
         return dogsList;
     }
+    
     public static ArrayList<Dog> getDogListMatchWithAttributs(ArrayList<Dog> dogs, String attribute, Boolean status){
         // Inner Class
         try {

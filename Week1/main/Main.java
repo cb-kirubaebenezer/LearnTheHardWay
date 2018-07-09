@@ -100,10 +100,10 @@ public class Main {
 
             //Lambda expressions
             for (Dog dog : Dog.getDogList(dogs,   
-                    d -> !(d.getIsRetriever()) && 
-                         !(d.getIsFriendly()) 
-                    )){
-                        UtilityMethods.print(dog.getName());
+                                        d -> !(d.getIsRetriever()) && 
+                                            !(d.getIsFriendly()) 
+                                        )){
+                UtilityMethods.print(dog.getName());
             }
 
         } catch (Exception e) {
