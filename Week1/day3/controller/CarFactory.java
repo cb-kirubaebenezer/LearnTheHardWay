@@ -4,6 +4,9 @@ import utilities.*;
 import day3.model.*;
 
 public class CarFactory{
+    /**
+    * @param type will create Truck,Sedan,Ford
+    */
     public static Car getCar(String type){
         try {
             if("TRUCK".equalsIgnoreCase(type)){
@@ -21,6 +24,9 @@ public class CarFactory{
         }
         return null;
     }
+    /**
+    * Return the Truck object
+    */
     private static Truck getTruck(){
         Truck truck = new  Truck();
         try {
@@ -35,6 +41,9 @@ public class CarFactory{
         }
         return truck;
     }
+    /**
+    * Return the Sedan object
+    */
     private static Sedan getSedan(){
         Sedan sedan = new Sedan();
         try {
@@ -49,6 +58,9 @@ public class CarFactory{
         }
         return sedan;
     }
+    /**
+    * Return the Ford object
+    */
     private static Ford getFord(){
         Ford ford = new Ford();
         try {

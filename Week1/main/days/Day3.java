@@ -11,7 +11,9 @@ public class Day3 extends IDays{
     public Day3(){
 
     }
-    
+    /**
+    * Welcome to the day 3.
+    */
     public void doWishTheDay(){
         try {
             UtilityMethods.print("Welcome to Day 3...");
@@ -26,6 +28,9 @@ public class Day3 extends IDays{
             UtilityMethods.print(e.getMessage());
         }
     }
+    /**
+    * Greet to the day 3.
+    */
     public void doSayGoodBye(){
         try {
             UtilityMethods.print("Hope you have enjoyed the day...");
@@ -33,7 +38,9 @@ public class Day3 extends IDays{
             UtilityMethods.print(e.getMessage());
         }
     }
-
+    /**
+    * Creating cars with it's sub-class Truck, Sedan and Ford.
+    */
     private void doWork(){
         try {
             UtilityMethods.print("Creating cars for you...!"); 
