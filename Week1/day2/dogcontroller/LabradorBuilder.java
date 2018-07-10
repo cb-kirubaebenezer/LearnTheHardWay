@@ -1,5 +1,8 @@
 package day2.dogcontroller;
 import day2.model.*;
+/**
+*  Model for Labrador retriver dog extends the Dog Builder abstract.
+*/
 public class LabradorBuilder extends DogBuilder{
     public void buildType(){
         dog.setType("Dog");

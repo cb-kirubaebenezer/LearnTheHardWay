@@ -3,6 +3,10 @@ import utilities.*;
 import java.util.*;
 
 public class Main {
+    /**
+     * Main method to initiate the days operation. Acts as start point.
+     * Read the input to create object for Day 1,2,3.
+     */
     public static void main(String[] args) {
         try {
             UtilityMethods.print("Good Day!. Please choose the day to run.\n1. Day 1\n2. Day 2\n3. Day 3");
@@ -28,6 +32,9 @@ public class Main {
             UtilityMethods.print("Good bye Bee!.");
         }
     }
+    /**
+     * Day 1 operations.
+     */
     private static void day1(String[] args){
         try {
             Day1 day1 = new Day1(args);
@@ -38,6 +45,9 @@ public class Main {
             UtilityMethods.print(e.getMessage());
         }
     }
+    /**
+     * Day 2,3,4,5 operations are mixed in this method.
+     */
     private static void day2(){
         try {
             Day2 day2 = new Day2();
@@ -48,6 +58,9 @@ public class Main {
             UtilityMethods.print(e.getMessage());
         }
     }
+    /**
+     * Day 2,3,4,5 operations are mixed in this method.
+     */
     private static void day3(){
         try {
             Day3 day3 = new Day3();

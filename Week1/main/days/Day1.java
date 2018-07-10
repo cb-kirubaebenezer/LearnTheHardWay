@@ -4,13 +4,16 @@ import java.util.*;
 import main.days.*;
 import main.service.IDays;
 import day1.*;
+
 public class Day1 extends IDays{
 
     private String[] args;
     public Day1(String[] args){
         this.args = args;
     }
-
+    /**
+    * Welcome to the day 1.
+    */
     public void doWishTheDay(){
         try {
             UtilityMethods.print("Welcome to Day 1...");
@@ -25,7 +28,9 @@ public class Day1 extends IDays{
             UtilityMethods.print(e.getMessage());
         }
     }
-
+    /**
+    * Greet to the day 1.
+    */
     public void doSayGoodBye(){
         try {
             UtilityMethods.print("Hope you have enjoyed the day...");
@@ -33,6 +38,12 @@ public class Day1 extends IDays{
             UtilityMethods.print(e.getMessage());
         }
     }
+    /**
+    * Print all the arguments.
+    * Add two numbers and print the result. Object created from AddTwoNumbers class.
+    * Handled switch case and if-else statements. Object created from CaseHandling class.
+    * Find the least power of for x to exceed y.
+    */
     private void doWork(String[] args){
         try {
             UtilityMethods.print("Printing all the command line args....");

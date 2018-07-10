@@ -9,6 +9,10 @@ public class BatGenerator{
     public Bat getBat(){
         return batBuilder.getBat();
     }
+    /**
+    * Call the bat builder to create the bat.
+    * Set all the attributes to get the customised bat. 
+    */
     public void constructBat(String species, String gender, Integer age, String foodHabit){
         try {
             batBuilder.createABat(species, gender, age, foodHabit);

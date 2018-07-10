@@ -9,6 +9,11 @@ public class DogGenerator{
     public Dog getDog(){
         return dogBuilder.getDog();
     }
+    
+    /**
+    * Call the dog builder to create the dog.
+    * Set all the attributes to get the customised dog. 
+    */
     public void constructDog(String species, String gender, Integer age, String foodHabit){
         try {
             dogBuilder.createADog(species, gender, age, foodHabit);

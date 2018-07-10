@@ -63,7 +63,13 @@ public class Dog extends Animal implements IBehaviour{
             UtilityMethods.print(e.getMessage());
         }
     }
-
+    /**
+    *  Return the list of dogs that match with certain predicates.
+    *  @param dogs list of dogs to manipulate
+    *  @param tester condition to be filtered.
+    *  @param mapper map the data for the filtered list.
+    *  @param block pipe out the data to caller method.
+    */
     public static void getDogList(
         ArrayList<Dog> dogs, 
         Predicate<Dog> tester,
@@ -80,7 +86,12 @@ public class Dog extends Animal implements IBehaviour{
             UtilityMethods.print(e.getMessage());
         }
     }
-
+    /**
+    *  Return the list of dogs that match with certain predicates.
+    *  @param dogs list of dogs to manipulate
+    *  @param attribute based on attribute filter the list
+    *  @param status on what basis the filter has to work
+    */
     public static ArrayList<Dog> getDogListMatchWithAttributs(
         ArrayList<Dog> dogs, 
         String attribute, 

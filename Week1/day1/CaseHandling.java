@@ -28,8 +28,12 @@ public class CaseHandling {
     public void oddOrEven(int a)
     {
         try {
-            if(a % 2 == 0) UtilityMethods.print("Even number.");
-            else UtilityMethods.print("Odd number.");
+            if(a % 2 == 0) {
+                UtilityMethods.print("Even number.");
+            }
+            else {
+                UtilityMethods.print("Odd number.");
+            }
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());
         } 

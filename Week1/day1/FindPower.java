@@ -18,8 +18,13 @@ public class FindPower {
                 Integer last = powersOfX.get(powersOfX.size()-1);
                 value = last * x;
                 if(value < number)
+                {
                     powersOfX.add(value);
-                else break;
+                }
+                else
+                {
+                    break;
+                }
             }
             return UtilityMethods.convertIntegerToString(powersOfX.size() + 1);
         } catch (Exception e) {

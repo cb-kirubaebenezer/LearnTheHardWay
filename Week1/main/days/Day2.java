@@ -12,7 +12,9 @@ public class Day2 extends IDays{
     public Day2(){
 
     }
-    
+    /**
+    * Welcome to the day 2.
+    */
     public void doWishTheDay(){
         try {
             UtilityMethods.print("Welcome to Day 2...");
@@ -20,6 +22,9 @@ public class Day2 extends IDays{
             UtilityMethods.print(e.getMessage());
         }
     }
+    /**
+    * Read the input to create Labrador, Golden retriver or Bat.
+    */
     public void doOperations(){
         try {
             UtilityMethods.print("Let's create some mammals.! Please choose the mammal to create.\n1. Labrador\n2. Golden Retriver\n3. Bat");
@@ -42,6 +47,9 @@ public class Day2 extends IDays{
             UtilityMethods.print(e.getMessage());
         }
     }
+    /**
+    * Greet to the day 2.
+    */
     public void doSayGoodBye(){
         try {
             UtilityMethods.print("Hope you have enjoyed the day...");
@@ -49,6 +57,10 @@ public class Day2 extends IDays{
             UtilityMethods.print(e.getMessage());
         }
     }
+    /**
+    * Print all the dogs match with attributes predicates.
+    * Expressed lambda expressions and aggregations on the list and print the data.
+    */
     private void getSomeDogs(){
         try {
             ArrayList<Dog> dogs = new ArrayList<Dog>();
@@ -77,7 +89,12 @@ public class Day2 extends IDays{
             UtilityMethods.print(e.getMessage());   
         }
     }
-
+    /**
+    * Create object for dog generator.
+    * Create object for dog builder for labrador.
+    * Using dog generator construct the dog and set the attributes.
+    * Expose the behaviour of the dog.   
+    */
     private static Dog createLabrador(){
         try {
             UtilityMethods.print("Creating labrador for you...!");   
@@ -104,6 +121,12 @@ public class Day2 extends IDays{
         }
         return null;
     }
+    /**
+    * Create object for dog generator.
+    * Create object for dog builder for golden retriver.
+    * Using dog generator construct the dog and set the attributes.
+    * Expose the behaviour of the dog.   
+    */
     private static Dog createGolderRetriver(){
         try {
             UtilityMethods.print("Creating golden retriver for you...!"); 
@@ -130,6 +153,12 @@ public class Day2 extends IDays{
         }
         return null; 
     }
+    /**
+    * Create object for bat generator.
+    * Create object for bat builder for big bat.
+    * Using bat generator construct the bat and set the attributes.
+    * Expose the behaviour of the bat.   
+    */
     private static Bat createBat(){
         try {
             UtilityMethods.print("Creating Big bat for you...!"); 

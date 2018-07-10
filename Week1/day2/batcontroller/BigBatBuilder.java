@@ -1,5 +1,6 @@
 package day2.batcontroller;
 import day2.model.*;
+
 public class BigBatBuilder extends BatBuilder{
     public void buildType(){
         bat.setType("Bat");
