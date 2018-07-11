@@ -18,6 +18,7 @@ public class Main {
      * day 1 and 2 tasks.
      * create a map with the "length of the word" as key and value as the "list of words with that length"
      * create a map with the common prefix(first 3 characters) as key and value as the list of words that starts with that prefix
+     * Phone book directory demo app.
     */
     private static void day12(){
         try {
