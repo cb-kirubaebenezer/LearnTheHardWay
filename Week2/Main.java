@@ -22,35 +22,7 @@ public class Main {
     private static void day12(){
         try {
             Day12 day12 = new Day12();
-            String countData[];
-            countData = new String[] {"hello","hello","dog","dog","fish","cat","hi","hi","hi","there","there","there","boss","lol"};
-            Util.print("Count of words in map....");
-            HashMap<Integer,LinkedList<String> > res = day12.getCountOfWords(countData);
-            for (Map.Entry rEntry : res.entrySet()) {
-                Util.print(rEntry.getKey().toString());
-                Util.print(rEntry.getValue().toString());
-            }
-            
-            String prefixData[];
-            prefixData = new String[] {"abcd","abcd","abde","efgh","efgh","hlmn","hlmn","hlmfwfwfwif"};
-            Util.print("Common prefix in map....");
-            HashMap<String,LinkedList<String> > prefixres = day12.getCommonPrefix(prefixData);
-            for (Map.Entry rEntry : prefixres.entrySet()) {
-                Util.print(rEntry.getKey().toString());
-                Util.print(rEntry.getValue().toString());
-            }
-            ArrayList<User> users = new ArrayList<User>();
-            users.add(new User(1, "Kiruba Ebenezer", new Address("","","")));
-            users.add(new User(2, "Kelly stone", new Address("","","")));
-        
-            users
-            .stream()
-            .filter(
-                user -> (user.getName().equals("Kiruba Ebenezer"))
-            )
-            .map(user -> user.getName())
-            .forEach(user -> Util.print(user));
-           
+            day12.doTask();
         } catch (Exception e) {
             Util.print(e.getMessage());
         }

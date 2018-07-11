@@ -1,6 +1,8 @@
 package day12;
 import java.util.*;
 import util.*;
+import day12.*;
+import day12.phonedirectory.week2model.*;
 public class Day12{
     /**
      * @param data list of words
@@ -56,5 +58,55 @@ public class Day12{
             Util.print(e.getMessage());
         }
         return words;
+    }
+    public void doTask(){
+        task1();
+        task2();
+        task3();
+    }
+    private void task1(){
+        try {
+            String countData[];
+            countData = new String[] {"hello","hello","dog","dog","fish","cat","hi","hi","hi","there","there","there","boss","lol"};
+            Util.print("Count of words in map....");
+            HashMap<Integer,LinkedList<String> > res = getCountOfWords(countData);
+            for (Map.Entry rEntry : res.entrySet()) {
+                Util.print(rEntry.getKey().toString());
+                Util.print(rEntry.getValue().toString());
+            }
+        } catch (Exception e) {
+            Util.print(e.getMessage());
+        }
+    }
+    private void task2(){
+        try {
+            String prefixData[];
+            prefixData = new String[] {"abcd","abcd","abde","efgh","efgh","hlmn","hlmn","hlmfwfwfwif"};
+            Util.print("Common prefix in map....");
+            HashMap<String,LinkedList<String> > prefixres = getCommonPrefix(prefixData);
+            for (Map.Entry rEntry : prefixres.entrySet()) {
+                Util.print(rEntry.getKey().toString());
+                Util.print(rEntry.getValue().toString());
+            }
+        } catch (Exception e) {
+            Util.print(e.getMessage());
+        }
+    }
+    private void task3(){
+        try {
+            ArrayList<User> users = new ArrayList<User>();
+            users.add(new User(1, "Kiruba Ebenezer", new Address("","","")));
+            users.add(new User(2, "Kelly stone", new Address("","","")));
+        
+            users
+            .stream()
+            .filter(
+                user -> (user.getName().equals("Kiruba Ebenezer"))
+            )
+            .map(user -> user.getName())
+            .forEach(user -> Util.print(user));
+        } catch (Exception e) {
+            Util.print(e.getMessage());
+        }
     }
 }
