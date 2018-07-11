@@ -1,6 +1,7 @@
 import java.util.*;
 import util.*;
 import day12.*;
+import day12.phonedirectory.week2model.*;
 public class Main {
     /**
      * Main method to initiate the days operation. Acts as start point.
@@ -38,6 +39,18 @@ public class Main {
                 Util.print(rEntry.getKey().toString());
                 Util.print(rEntry.getValue().toString());
             }
+            ArrayList<User> users = new ArrayList<User>();
+            users.add(new User(1, "Kiruba Ebenezer", new Address("","","")));
+            users.add(new User(2, "Kelly stone", new Address("","","")));
+        
+            users
+            .stream()
+            .filter(
+                user -> (user.getName().equals("Kiruba Ebenezer"))
+            )
+            .map(user -> user.getName())
+            .forEach(user -> Util.print(user));
+           
         } catch (Exception e) {
             Util.print(e.getMessage());
         }

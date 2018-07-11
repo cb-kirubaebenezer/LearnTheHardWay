@@ -26,7 +26,7 @@ public class Main {
                     break;
             }
             reader.close();
-        } catch (Exception
+        } catch (Exception e){
             UtilityMethods.print(e.getMessage());
         }
         finally{
