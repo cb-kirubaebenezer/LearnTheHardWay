@@ -1,11 +1,12 @@
-import com.google.gson.*;
+package com.chargebee.app.week2;
 import java.util.*;
-import util.*;
-import day12.*;
-import day23.*;
-import day23.fileoperation.*;
-import day12.phonedirectory.week2model.*;
-public class Main {
+import com.chargebee.app.week2.util.*;
+import com.google.gson.Gson;
+import com.chargebee.app.week2.day12.*;
+import com.chargebee.app.week2.day23.*;
+import com.chargebee.app.week2.day23.fileoperation.*;
+import com.chargebee.app.week2.day12.phonedirectory.week2model.*;
+public class Week2App {
     /**
      * Main method to initiate the days operation. Acts as start point.
      */
@@ -35,6 +36,7 @@ public class Main {
     }
     private static void day23(){
         try {
+            Gson gson = new Gson();
             FileOperation fileOperation = new FileOperation();
             fileOperation.doFileOperation();
         } catch (Exception e) {
