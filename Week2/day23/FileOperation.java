@@ -99,8 +99,6 @@ public class FileOperation {
             out = new BufferedWriter(fstream);
             for (Map.Entry rEntry : words.entrySet()) {
                 out.write(rEntry.getKey().toString() + " - " + rEntry.getValue().toString() + "\n"); 
-                // Util.print(rEntry.getKey().toString());
-                // Util.print(rEntry.getValue().toString());
             }
             out.close();
         } catch (Exception e) {
