@@ -1,4 +1,4 @@
-package day23;
+package day23.fileoperation;
 
 import util.*;
 import java.util.*;
@@ -10,6 +10,8 @@ import java.nio.file.StandardCopyOption;
 
 public class FileOperation {
     public void doFileOperation() {
+        try {
+            
         String dirName = "/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay";
         printFileWithExtensions(listFiles(dirName, new ArrayList<File>()));
         move(new File("/Users/cb-kiruba/Documents/GitHub/Example3"), new
@@ -18,6 +20,9 @@ public class FileOperation {
         File("/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/sample.txt"),
         "/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/out.txt");
         searchCount(new File("/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/sample.txt"), "Lorem");
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
     }
 
     private void printFileWithExtensions(ArrayList<File> files) {
