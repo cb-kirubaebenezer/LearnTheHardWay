@@ -1,6 +1,7 @@
 import java.util.*;
 import util.*;
 import day12.*;
+import day23.*;
 import day12.phonedirectory.week2model.*;
 public class Main {
     /**
@@ -8,7 +9,8 @@ public class Main {
      */
     public static void main(String[] args) {
         try {
-            day12();
+            // day12();
+            day23();
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
@@ -27,6 +29,14 @@ public class Main {
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
-        
+
+    }
+    private static void day23(){
+        try {
+            FileOperation fileOperation = new FileOperation();
+            fileOperation.doFileOperation();
+        } catch (Exception e) {
+            Util.print(e.getMessage());
+        }
     }
 }
