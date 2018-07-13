@@ -11,10 +11,13 @@ import java.nio.file.StandardCopyOption;
 public class FileOperation {
     public void doFileOperation() {
         String dirName = "/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay";
-        // printFileWithExtensions(listFiles(dirName, new ArrayList<File>()));
-        // move(new File("/Users/cb-kiruba/Documents/GitHub/Example3"), new
-        // File("/Users/cb-kiruba/Documents/GitHub/Example3"));
-        countAllWordsToAFile(new File("/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/sample.txt"),"/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/out.txt");
+        printFileWithExtensions(listFiles(dirName, new ArrayList<File>()));
+        move(new File("/Users/cb-kiruba/Documents/GitHub/Example3"), new
+        File("/Users/cb-kiruba/Documents/GitHub/Example3"));
+        countAllWordsToAFile(new
+        File("/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/sample.txt"),
+        "/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/out.txt");
+        searchCount(new File("/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/sample.txt"), "Lorem");
     }
 
     private void printFileWithExtensions(ArrayList<File> files) {
@@ -76,13 +79,12 @@ public class FileOperation {
         return false;
     }
 
-    private void countAllWordsToAFile(File file,String outFile) {
+    private void countAllWordsToAFile(File file, String outFile) {
         HashMap<String, Integer> words = new HashMap<String, Integer>();
         try {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                Util.print(line);
                 String[] word = line.split("\\s+");
                 for (String w : word) {
                     if (words.containsKey(w)) {
@@ -98,11 +100,31 @@ public class FileOperation {
             fstream = new FileWriter(outFile);
             out = new BufferedWriter(fstream);
             for (Map.Entry rEntry : words.entrySet()) {
-                out.write(rEntry.getKey().toString() + " - " + rEntry.getValue().toString() + "\n"); 
+                out.write(rEntry.getKey().toString() + " - " + rEntry.getValue().toString() + "\n");
             }
             out.close();
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
+    }
+
+    public static int searchCount(File file, String fileWord) {
+        int count = 0;
+        try {
+            fileWord = fileWord.trim();
+            Scanner scanner = new Scanner(file);
+            int lineCount = 1;
+            while (scanner.hasNextLine()) {
+                String nextWord = scanner.nextLine().trim();
+                if (nextWord.contains(fileWord)) {
+                    Util.print("Word " + fileWord + " found at line " + String.valueOf(lineCount) + " positioning at "
+                            + String.valueOf(nextWord.indexOf(fileWord)));
+                }
+                lineCount++;
+            }
+        } catch (Exception e) {
+            Util.print(e.getMessage());
+        }
+        return count;
     }
 }
