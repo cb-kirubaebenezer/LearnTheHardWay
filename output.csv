@@ -1,0 +1,2 @@
+Customer Id,Subscription Id,Invoice Number,Invoice Date,Start Date,Amount,Status,Paid On,Next Retry,Refunded Amount,Recurring,First Invoice,Tax Total,Customer Details
+cbdemo_XpbGA4wP6d1MsCl,cbdemo_XpbGA4wP6d1MsCl,DemoInv_105,2015-01-08T12:23:00.000Z,2014-12-24T12:23:00.000Z,2400,Paid,1/8/2015 12:23:00,,0,TRUE,TRUE,0,"{""first_name"":""Roger"",""last_name"":""W"",""email"":""rwicker@cbacme.com"",""company"":""""}"
