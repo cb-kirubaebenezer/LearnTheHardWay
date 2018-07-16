@@ -1,18 +1,27 @@
 
 package com.chargebee.app.week2.day23.school;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Student {
 
+    @SerializedName("Date Of Joining")
+    @Expose
     private String dateOfJoining;
+    @SerializedName("ID")
+    @Expose
     private String iD;
+    @SerializedName("Marks")
+    @Expose
     private List<Mark> marks = null;
+    @SerializedName("Name")
+    @Expose
     private String name;
+    @SerializedName("Std")
+    @Expose
     private String std;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     public String getDateOfJoining() {
         return dateOfJoining;
@@ -52,14 +61,6 @@ public class Student {
 
     public void setStd(String std) {
         this.std = std;
-    }
-
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
     }
 
 }

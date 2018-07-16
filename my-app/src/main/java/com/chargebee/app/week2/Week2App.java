@@ -1,4 +1,6 @@
 package com.chargebee.app.week2;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.*;
 import com.chargebee.app.week2.util.*;
 import com.google.gson.Gson;
@@ -7,6 +9,7 @@ import com.chargebee.app.week2.day12.*;
 import com.chargebee.app.week2.day23.*;
 import com.chargebee.app.week2.day23.csvoperation.CsvOperation;
 import com.chargebee.app.week2.day23.fileoperation.*;
+import com.chargebee.app.week2.day23.school.MyClass;
 import com.chargebee.app.week2.day12.phonedirectory.week2model.*;
 public class Week2App {
     /**
@@ -41,12 +44,19 @@ public class Week2App {
         try {
             FileOperation fileOperation = new FileOperation();
             fileOperation.doFileOperation();
+
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
     }
     private static void day5(){
         try {
+            Gson gson = new Gson();
+            BufferedReader br = new BufferedReader(new FileReader("/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/students-teachers.json"));
+            MyClass myClass = gson.fromJson(br, MyClass.class);
+            Util.print(myClass.getStudent().getName());
+            Util.print(myClass.getTeacher().getName());
+            
             CsvOperation csvOperation = new CsvOperation();
             csvOperation.doOperation();
         } catch (Exception e) {

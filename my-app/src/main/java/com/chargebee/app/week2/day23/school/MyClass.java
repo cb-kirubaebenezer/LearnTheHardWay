@@ -1,13 +1,17 @@
 
 package com.chargebee.app.week2.day23.school;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class Class{
+public class MyClass {
+
+    @SerializedName("Student")
+    @Expose
     private Student student;
+    @SerializedName("Teacher")
+    @Expose
     private Teacher teacher;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     public Student getStudent() {
         return student;
@@ -23,14 +27,6 @@ public class Class{
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
-    }
-
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
     }
 
 }
