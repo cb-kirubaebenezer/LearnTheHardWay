@@ -8,16 +8,26 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 public class FileOperation {
+    private static final String DIRECTORY_NAME = "/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay";
+    private static final String MOVE_FROM_FOLDER_PATH = "/Users/cb-kiruba/Documents/GitHub/Example3";
+    private static final String MOVE_TO_FOLDER_PATH = "/Users/cb-kiruba/Documents/GitHub/Example3";
+    private static final String COUNT_ALL_WORDS_INPUT_FILE_PATH = "/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/sample.txt";
+    private static final String COUNT_ALL_WORDS_OUTPUT_FILE_PATH = "/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/out.txt";
+    private static final String SEARCH_COUNT_INPUT_FILE_PATH = "/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/sample.txt";
     public void doFileOperation() {
         try {
-            String dirName = "/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay";
-            printFileWithExtensions(listFiles(dirName, new ArrayList<File>()));
-            move(new File("/Users/cb-kiruba/Documents/GitHub/Example3"), new
-            File("/Users/cb-kiruba/Documents/GitHub/Example3"));
+            
+            printFileWithExtensions(listFiles(DIRECTORY_NAME, new ArrayList<File>()));
+           
+            move(new File(MOVE_FROM_FOLDER_PATH), new
+            File(MOVE_TO_FOLDER_PATH));
+            
             countAllWordsToAFile(new
-            File("/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/sample.txt"),
-            "/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/out.txt");
-            searchCount(new File("/Users/cb-kiruba/Documents/GitHub/LearnTheHardWay/sample.txt"), "Lorem");
+            File(COUNT_ALL_WORDS_INPUT_FILE_PATH),
+            COUNT_ALL_WORDS_OUTPUT_FILE_PATH);
+           
+            searchCount(new File(SEARCH_COUNT_INPUT_FILE_PATH), "Lorem");
+            
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
