@@ -2,8 +2,10 @@ package com.chargebee.app.week2;
 import java.util.*;
 import com.chargebee.app.week2.util.*;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.chargebee.app.week2.day12.*;
 import com.chargebee.app.week2.day23.*;
+import com.chargebee.app.week2.day23.csvoperation.CsvOperation;
 import com.chargebee.app.week2.day23.fileoperation.*;
 import com.chargebee.app.week2.day12.phonedirectory.week2model.*;
 public class Week2App {
@@ -13,7 +15,8 @@ public class Week2App {
     public static void main(String[] args) {
         try {
             // day12();
-            day23();
+            // day23();
+            day5();
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
@@ -36,9 +39,16 @@ public class Week2App {
     }
     private static void day23(){
         try {
-            Gson gson = new Gson();
             FileOperation fileOperation = new FileOperation();
             fileOperation.doFileOperation();
+        } catch (Exception e) {
+            Util.print(e.getMessage());
+        }
+    }
+    private static void day5(){
+        try {
+            CsvOperation csvOperation = new CsvOperation();
+            csvOperation.doOperation();
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
