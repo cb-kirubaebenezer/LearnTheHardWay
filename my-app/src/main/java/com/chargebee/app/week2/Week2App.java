@@ -58,7 +58,7 @@ public class Week2App {
             Util.print(myClass.getTeacher().getName());
             
             CsvOperation csvOperation = new CsvOperation();
-            csvOperation.doOperation();
+            csvOperation.cleanUpCSV();
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
