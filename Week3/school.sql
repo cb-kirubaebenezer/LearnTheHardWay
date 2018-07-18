@@ -57,41 +57,51 @@ DROP TABLE IF EXISTS `marks`;
 DROP TABLE IF EXISTS `students`;
 
 
-
+-- Select all the medals
 SELECT 
     *
 FROM
     MEDALS;
 
+-- Select all the students
 SELECT 
     *
 FROM
     STUDENTS;
 
+-- Select all the marks
 SELECT 
     *
 FROM
     MARKS;
 
 
-SELECT 
+-- Select all the students whose names starts with “H”
+ SELECT 
     *
 FROM
     STUDENTS
 WHERE
     NAME LIKE 'H%';
+    
+ -- Select all the students whose name has the alphabet “a”
 SELECT 
     *
 FROM
     STUDENTS
 WHERE
     NAME LIKE '%a%';
+    
+-- Select all the students and list the results sorted in alphabetical order(a-z) and limit to 2.
 SELECT 
     *
 FROM
     STUDENTS
 ORDER BY NAME
 LIMIT 2;
+
+
+-- List the next “2” students(3rd and 4th) when they are sorted in the alphabetical order.
 SELECT 
     *
 FROM
@@ -101,6 +111,8 @@ WHERE
 ORDER BY NAME
 LIMIT 2;
 
+-- Select the students who has not appeared in the annual exams.
+-- Format: All columns of the “marks” table.
 SELECT 
     student_id,
     subject_id,
@@ -116,6 +128,8 @@ FROM
 WHERE
     M.ANNUAL IS NULL;
 
+-- Select the students who has not appeared in the annual exams during the year “2005”.
+-- Format: student_id, subject_id, year
 SELECT 
     student_id, subject_id, year
 FROM
@@ -125,6 +139,8 @@ FROM
 WHERE
     M.ANNUAL IS NULL AND M.YEAR = 2005;
 
+-- Select the students who has appeared in one of the exams - quarterly, half_yearly or annual.
+-- Format: student_id, subject_id, year
 SELECT 
     student_id, subject_id, year
 FROM
@@ -136,7 +152,8 @@ WHERE
         OR (M.HALF_YEARLY IS NOT NULL)
         OR (M.QUARTERLY IS NOT NULL);
 
-
+-- Select the students who has scored more than 90 in all the exams - quarterly, half_yearly and annual.
+-- Format: student_id, subject_id, year, quarterly, half_yearly, annual 
 SELECT 
     student_id, subject_id, year, quarterly, half_yearly, annual
 FROM
@@ -147,6 +164,8 @@ WHERE
     (M.ANNUAL > 90) AND (M.HALF_YEARLY > 90)
         AND (M.QUARTERLY > 90);
 
+-- List the average marks(in quarterly, half_yearly & annual) for each subject scored for the year.
+-- Format: student_id, subject_id, average, year
 SELECT 
     student_id,
     subject_id,
@@ -160,6 +179,8 @@ FROM
         INNER JOIN
     MARKS AS M ON S.ID = M.STUDENT_ID;
 
+-- List the average marks(in quarterly, half_yearly & annual) for each subject scored for the years 2003 & 2004
+-- Format: student_id, subject_id, average, year
 SELECT 
     student_id,
     subject_id,
@@ -175,3 +196,117 @@ FROM
 WHERE
     M.YEAR BETWEEN 2003 AND 2004;
 
+    -- List the students who didn’t appear for any exams.
+-- Format: name
+SELECT 
+    name
+FROM
+    STUDENTS AS S
+        INNER JOIN
+    MARKS AS M ON S.ID = M.STUDENT_ID
+WHERE
+    M.QUARTERLY IS NULL
+        AND M.HALF_YEARLY IS NULL
+        AND ANNUAL IS NULL;
+
+-- Find the total marks scored by each students in the annual exams. If the student hasn’t appeared for any annual exam, he should still be listed with total marks scored as “0”.
+-- Format: name, marks, year
+SELECT 
+    name, year, SUM(annual) AS total_marks
+FROM
+    STUDENTS AS S
+        INNER JOIN
+    MARKS AS M ON S.ID = M.STUDENT_ID
+GROUP BY M.STUDENT_ID , S.NAME , M.YEAR;
+
+-- List the students with the total marks scored in quarterly from all the subjects they had appeared during the year 2003.
+-- Format: name, total, grade
+SELECT 
+    name, year, SUM(quarterly) AS total_marks
+FROM
+    STUDENTS AS S
+        INNER JOIN
+    MARKS AS M ON S.ID = M.STUDENT_ID
+GROUP BY M.STUDENT_ID , S.NAME , M.YEAR
+HAVING M.YEAR >= 2003;
+
+
+-- List the 9th and 10th grade students who received more than 3 medals.
+-- Format: name, grade, no_of_medals
+SELECT 
+    name, grade, COUNT(medal_won) AS medal_count
+FROM
+    STUDENTS AS S
+        INNER JOIN
+    MEDALS AS M ON S.ID = M.STUDENT_ID
+WHERE
+    M.GRADE BETWEEN 9 AND 10
+GROUP BY S.NAME , M.GRADE
+HAVING medal_count > 3;
+
+-- List the students who got less than 2 medals. This should also include the students who has not won any medals.
+-- Format: name, grade, no_of_medals
+SELECT 
+    name, grade, COUNT(medal_won) AS medal_count
+FROM
+    STUDENTS AS S
+        INNER JOIN
+    MEDALS AS M ON S.ID = M.STUDENT_ID
+GROUP BY S.NAME , M.GRADE
+HAVING medal_count < 2;
+
+-- List the students who has not yet received any medals but scored more than 90 marks in all the subjects in the annual exam for that year.
+-- Format: name, year
+SELECT 
+    name,
+    M.grade,
+    COUNT(medal_won) AS medal_count,
+    M.year,
+    SUM(annual) AS total_marks
+FROM
+    STUDENTS AS S
+        INNER JOIN
+    MEDALS AS M ON S.ID = M.STUDENT_ID
+        INNER JOIN
+    MARKS AS MA ON S.ID = MA.STUDENT_ID
+GROUP BY S.NAME , M.GRADE , M.year
+HAVING medal_count = 1 AND total_marks >= 90;
+
+-- List the records from the medals table for the students who had won more than 3 medals.
+-- Format: name, game_id, medal_won, year, grade
+SELECT 
+    name, game_id, grade, COUNT(medal_won) AS medal_count, year
+FROM
+    STUDENTS AS S
+        INNER JOIN
+    MEDALS AS M ON S.ID = M.STUDENT_ID
+GROUP BY S.NAME , M.GRADE , M.GAME_ID , M.YEAR
+HAVING medal_count > 3;
+
+-- List the number of medals and percentage of marks(based on total for the 5 subjects) scored in each year.
+-- Format: name, medals, quarterly_per, half_yearly_per, annual_per, year, grade
+SELECT 
+    name,
+    COUNT(medal_won) AS medal_count,
+    IFNULL(quarterly / 100, 0) AS quarterly_perc,
+    IFNULL(half_yearly / 100, 0) AS half_yearly_perc,
+    IFNULL(annual / 100, 0) AS annual_perc,
+    M.year,
+    M.grade
+FROM
+    STUDENTS AS S
+        INNER JOIN
+    MEDALS AS M ON S.ID = M.STUDENT_ID
+        INNER JOIN
+    MARKS AS MA ON S.ID = MA.STUDENT_ID
+GROUP BY S.NAME , MA.QUARTERLY , MA.HALF_YEARLY , MA.ANNUAL , M.YEAR , M.GRADE;
+
+
+SELECT 
+    *
+FROM
+    STUDENTS AS S
+        INNER JOIN
+    MEDALS AS M ON S.ID = M.STUDENT_ID
+        INNER JOIN
+    MARKS AS MA ON S.ID = MA.STUDENT_ID;
