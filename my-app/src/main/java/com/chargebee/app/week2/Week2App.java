@@ -40,6 +40,12 @@ public class Week2App {
         }
 
     }
+    /**
+     * Print files extensions and file names under that extension.
+     * Move the files from/to a directory
+     * Count all the words in a file and out the words and it's count.
+     * Search a keyword from a file.
+     */
     private static void day23(){
         try {
             FileOperation fileOperation = new FileOperation();
