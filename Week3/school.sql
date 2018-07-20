@@ -310,3 +310,36 @@ FROM
     MEDALS AS M ON S.ID = M.STUDENT_ID
         INNER JOIN
     MARKS AS MA ON S.ID = MA.STUDENT_ID;
+
+
+ALTER TABLE MARKS MODIFY quarterly INT(11) NOT NULL;
+ALTER TABLE MARKS MODIFY half_yearly INT(11) NOT NULL;
+ALTER TABLE MARKS MODIFY annual INT(11) NOT NULL;
+
+DROP TABLE IF EXISTS STUDENTS_SUMMARY;
+
+CREATE TABLE IF NOT EXISTS STUDENTS_SUMMARY (
+    student_id BIGINT(19),
+    student_name VARCHAR(100),
+    year INT(11),
+    percentage INT(11),
+    no_of_medals_recieved INT(3),
+    PRIMARY KEY (student_id , year)
+);
+
+INSERT INTO STUDENTS_SUMMARY(student_id,student_name,year,percentage,no_of_medals_recieved) 
+SELECT 
+    S.id, name, MA.year, SUM(annual)/5 as percentage, COUNT(medal_won) as medal_won
+FROM
+    STUDENTS AS S
+        INNER JOIN
+    MARKS AS MA ON S.ID = MA.STUDENT_ID
+        INNER JOIN
+    MEDALS AS ME ON ME.STUDENT_ID = MA.STUDENT_ID
+GROUP BY MA.STUDENT_ID, MA.YEAR;
+
+
+SELECT 
+    *
+FROM
+    STUDENTS_SUMMARY;
