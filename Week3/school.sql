@@ -312,12 +312,22 @@ FROM
     MARKS AS MA ON S.ID = MA.STUDENT_ID;
 
 
+-- Add columns 'created_at' and 'updated_at' to the tables marks, students and medals.
+-- Replace the null values in quarterly, half_yearly and annual columns with 0 and make those columns as not nullable.
+
 ALTER TABLE MARKS MODIFY quarterly INT(11) NOT NULL;
 ALTER TABLE MARKS MODIFY half_yearly INT(11) NOT NULL;
 ALTER TABLE MARKS MODIFY annual INT(11) NOT NULL;
 
 DROP TABLE IF EXISTS STUDENTS_SUMMARY;
 
+-- Using the table training_sample, do the following
+-- create a table students_summary with the below columns
+-- student_id
+-- student_name
+-- year
+-- percentage (got in annual exams)
+-- no_of_medals_received
 CREATE TABLE IF NOT EXISTS STUDENTS_SUMMARY (
     student_id BIGINT(19),
     student_name VARCHAR(100),
@@ -327,6 +337,8 @@ CREATE TABLE IF NOT EXISTS STUDENTS_SUMMARY (
     PRIMARY KEY (student_id , year)
 );
 
+-- Derive the values from the tables(students, marks and medals) and insert into the above table
+-- Use insert with select statement
 INSERT INTO STUDENTS_SUMMARY(student_id,student_name,year,percentage,no_of_medals_recieved) 
 SELECT 
     S.id, name, MA.year, SUM(annual)/5 as percentage, COUNT(medal_won) as medal_won
@@ -343,3 +355,34 @@ SELECT
     *
 FROM
     STUDENTS_SUMMARY;
+
+
+      
+
+delimiter |
+CREATE TRIGGER testref BEFORE INSERT ON MARKS
+  FOR EACH ROW
+  BEGIN
+      SET NEW.average = ((IFNULL(NEW.quarterly, 0) + IFNULL(NEW.half_yearly, 0) + IFNULL(NEW.annual, 0))) / 3;
+  END;
+|
+delimiter ;
+DROP TRIGGER testref;
+
+delimiter |
+CREATE TRIGGER testrefonupdate BEFORE UPDATE ON MARKS
+  FOR EACH ROW
+  BEGIN
+      SET NEW.average = ((IFNULL(NEW.quarterly, 0) + IFNULL(NEW.half_yearly, 0) + IFNULL(NEW.annual, 0))) / 3;
+  END;
+|
+delimiter ;
+
+INSERT INTO MARKS (id,student_id,subject_id,quarterly,half_yearly,annual,year,grade,created_at,updated_at) VALUES (1127,100006,1,0,79,91,2003,6,now(),now());
+
+UPDATE MARKS 
+SET 
+    quarterly = 100
+WHERE
+    id = 1127;
+
