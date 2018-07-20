@@ -91,8 +91,6 @@ CREATE TABLE IF NOT EXISTS USER (
     PRIMARY KEY (user_id)
 )  ENGINE=INNODB;
 
-
-
 SELECT * FROM TRAIN_COACH; 
 SELECT * FROM TRAIN;
 SELECT * FROM STATION;
@@ -101,7 +99,6 @@ SELECT * FROM BOOKING;
 SELECT * FROM TRAIN_ROUTE_MAP;
 SELECT * FROM  ROUTE;
 SELECT * FROM USER;
-
     
 INSERT INTO TRAIN(train_name) values('ROCKFORT EXPRESS'),('PALLAVAN EXPRESS'),('MANGALORE EXPRESS'),('MYSORE EXPRESS'),('CHENNAI EXPRESS'),('RAJTHANI EXPRESS');
 
@@ -127,42 +124,103 @@ INSERT INTO TRAIN_ROUTE_MAP(route_id,train_no,arrival_time,departure_time, durat
 INSERT INTO TRAIN_ROUTE_MAP(route_id,train_no,arrival_time,departure_time, duration_in_mins) values (20,4,'2018-07-19 01:30:00','2018-07-19 02:30:00','01:00:00'),(19,4,'2018-07-19 01:30:00','2018-07-19 03:30:00','02:00:00'),(18,4,'2018-07-19 01:30:00','2018-07-19 04:30:00','03:00:00'),(17,4,'2018-07-19 01:30:00','2018-07-19 05:30:00','04:00:00'),(15,4,'2018-07-19 02:30:00','2018-07-19 03:30:00','01:00:00'),(14,4,'2018-07-19 02:30:00','2018-07-19 04:30:00','02:00:00'),(13,4,'2018-07-19 02:30:00','2018-07-19 05:30:00','03:00:00'),(10,4,'2018-07-19 03:30:00','2018-07-19 04:30:00','01:00:00'),(9,4,'2018-07-19 03:30:00','2018-07-19 05:30:00','02:00:00'),(5,4,'2018-07-19 04:30:00','2018-07-19 05:30:00','01:00:00');
 INSERT INTO TRAIN_ROUTE_MAP(route_id,train_no,arrival_time,departure_time, duration_in_mins) values (6,5,'2018-07-19 05:00:00','2018-07-19 06:00:00','01:00:00'),(7,5,'2018-07-19 05:00:00','2018-07-19 07:00:00','02:00:00');
 
-
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,1,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',3);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,1,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',1);
 INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(2,1,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',2);
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,1,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,1,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,1,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',3);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,1,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',4);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,1,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',5);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(2,1,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',6);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,1,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',7);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,1,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',8);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,1,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(2,1,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',10);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,1,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',11);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,1,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',12);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,1,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',13);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(2,1,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',14);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,1,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',15);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,1,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',16);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,1,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',17);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,1,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',18);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,1,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',19);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,1,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',20);
 
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,2,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',3);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,2,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',1);
 INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(2,2,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',2);
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,2,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,2,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,2,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',3);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,2,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',4);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,2,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',5);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(2,2,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',6);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,2,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',7);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,2,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',8);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,2,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(2,2,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',10);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,2,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',11);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,2,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',12);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,2,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',13);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(2,2,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',14);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,2,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',15);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,2,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',16);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(1,2,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',17);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(2,2,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',18);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(3,2,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',19);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(4,2,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',20);
 
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,3,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',3);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,3,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',1);
 INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(19,3,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',2);
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,3,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,3,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,3,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',3);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,3,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',4);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,3,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',5);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(19,3,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',6);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,3,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',7);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,3,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',8);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,3,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(19,3,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',10);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,3,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',11);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,3,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',12);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,3,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',13);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(19,3,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',14);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,3,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',15);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,3,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',16);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,3,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',17);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(19,3,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',18);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,3,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',19);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,3,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',20);
 
-
-
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,4,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',3);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,4,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',1);
 INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(19,4,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',2);
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,4,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,4,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,4,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',3);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,4,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',4);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,4,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',5);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(19,4,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',6);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,4,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',7);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,4,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',8);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,4,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',9);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(19,4,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',10);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,4,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',11);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,4,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',12);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,4,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',13);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(19,4,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',14);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,4,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',15);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,4,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',16);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(20,4,1,'2018-07-19 01:30:00','2018-06-20 05:30:00',17);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(19,4,2,'2018-07-19 01:30:00','2018-06-20 05:30:00',18);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(18,4,3,'2018-07-19 01:30:00','2018-06-20 05:30:00',19);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(17,4,4,'2018-07-19 01:30:00','2018-06-20 05:30:00',20);
 
 
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(6,5,4,'2018-07-19 05:00:00','2018-06-20 05:30:00',3);
-INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(7,5,3,'2018-07-19 05:00:00','2018-06-20 05:30:00',2);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(6,5,4,'2018-07-19 05:00:00','2018-06-20 05:30:00',50);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(7,5,3,'2018-07-19 05:00:00','2018-06-20 05:30:00',200);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(6,5,4,'2018-07-19 05:00:00','2018-06-20 05:30:00',30);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(7,5,3,'2018-07-19 05:00:00','2018-06-20 05:30:00',70);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(6,5,4,'2018-07-19 05:00:00','2018-06-20 05:30:00',180);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(7,5,3,'2018-07-19 05:00:00','2018-06-20 05:30:00',1);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(6,5,4,'2018-07-19 05:00:00','2018-06-20 05:30:00',2);
+INSERT INTO BOOKING(route_id,train_no,coach_code,date_of_journey,date_of_booking,no_of_tickets) values(7,5,3,'2018-07-19 05:00:00','2018-06-20 05:30:00',3);
 
 
 
 INSERT INTO USER(login_id,password) values(117015065,'bornawesome'),(117015066,'bornawesome');
-
-
-
-
-
-
 
 SELECT * FROM TRAIN_COACH; 
 SELECT * FROM TRAIN;
