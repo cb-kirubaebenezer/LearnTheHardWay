@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS COACH (
     cost_per_km BIGINT(19) NOT NULL,
     PRIMARY KEY (coach_code)
 )  ENGINE=INNODB;
-
+ 
 
 CREATE TABLE IF NOT EXISTS STATION (
     station_id BIGINT(19) NOT NULL AUTO_INCREMENT,
@@ -291,3 +291,64 @@ FROM
     COACH;
 
 -- List the train name and departure time for the trains starting from Bangalore 
+SELECT 
+    train_name, departure_time
+FROM
+    TRAIN_ROUTE_MAP AS TM
+        INNER JOIN
+    TRAIN AS T ON TM.TRAIN_NO = T.TRAIN_NO
+WHERE
+    ROUTE_ID IN (1 , 2, 3, 4);
+
+-- List the trains for which the total no of tickets booked is greater than 500  
+SELECT 
+    train_name
+FROM
+    (SELECT 
+        train_name, SUM(NO_OF_TICKETS) AS tickets_count
+    FROM
+        BOOKING AS B
+    INNER JOIN TRAIN AS T ON B.TRAIN_NO = T.TRAIN_NO
+    GROUP BY B.TRAIN_NO
+    HAVING tickets_count > 100) AS booking_detail;
+
+-- List the trains for which the total no of tickets booked is lesser than 50
+SELECT 
+    train_name
+FROM
+    (SELECT 
+        train_name, SUM(NO_OF_TICKETS) AS tickets_count
+    FROM
+        BOOKING AS B
+    INNER JOIN TRAIN AS T ON B.TRAIN_NO = T.TRAIN_NO
+    GROUP BY B.TRAIN_NO
+    HAVING tickets_count < 50) AS booking_detail;
+
+-- List the bookings along with train name, origin station, destination station and coach code after the date of journey ’25th Feb 2015’
+SELECT 
+    train_name,
+    orgin_station_id,
+    destination_station_id,
+    coach_code
+FROM
+    BOOKING AS B
+        INNER JOIN
+    TRAIN AS T ON B.TRAIN_NO = T.TRAIN_NO
+        INNER JOIN
+    ROUTE AS R ON B.ROUTE_ID = R.ROUTE_ID
+WHERE
+    B.DATE_OF_JOURNEY = '2018-07-19 01:30:00';
+    
+-- List the trains via the route Mysore - Chennai
+SELECT 
+    train_name
+FROM
+    TRAIN_ROUTE_MAP AS TM
+        INNER JOIN
+    TRAIN AS T ON TM.TRAIN_NO = T.TRAIN_NO
+        INNER JOIN
+    ROUTE AS R ON TM.ROUTE_ID = R.ROUTE_ID
+WHERE
+    R.DESTINATION_STATION_ID = 3
+        AND R.ORGIN_STATION_ID = 1;
+    
