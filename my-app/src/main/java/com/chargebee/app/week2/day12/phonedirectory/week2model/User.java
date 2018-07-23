@@ -15,6 +15,9 @@ public class User {
         this.address = address;
         this.contacts = new ArrayList<Contact>();
     }
+    public Integer getId(){
+        return id;
+    }
     public String getName(){
         return name;
     }

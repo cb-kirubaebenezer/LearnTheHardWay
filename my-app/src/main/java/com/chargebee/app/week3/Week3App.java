@@ -1,6 +1,8 @@
 package com.chargebee.app.week3;
 import java.sql.*;
 import java.util.*;
+import com.chargebee.app.week2.day12.phonedirectory.week2model.*;
+import com.chargebee.app.week2.day12.Day12;
 import com.chargebee.app.week2.util.*;
 
 public class Week3App {
@@ -13,7 +15,9 @@ public class Week3App {
 
     public static void main(String[] args) {
         try {
-            doOperation();
+            //doOperation();
+            Day12 day12 = new Day12();
+            insertData(day12.task3());
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
@@ -60,5 +64,20 @@ public class Week3App {
             e.printStackTrace();
         }
         return null;
+    }
+    public static void insertData(ArrayList<User> users){
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            conn = getConnection(DB_URL,USER,PASS);
+            stmt = conn.createStatement();  
+            for (User user : users) {
+                stmt.executeUpdate("INSERT INTO USER(id,name) values('" + user.getId() + "','" + user.getName() + "')");
+            }
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+
+        }
     }
 }

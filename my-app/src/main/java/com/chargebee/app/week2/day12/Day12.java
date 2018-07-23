@@ -97,16 +97,17 @@ public class Day12 {
         }
     }
 
-    private void task3() {
+    public ArrayList<User> task3() {
         try {
             ArrayList<User> users = new ArrayList<User>();
             users.add(new User(1, "Kiruba Ebenezer", new Address("", "", "")));
             users.add(new User(2, "Kelly stone", new Address("", "", "")));
-
-            users.stream().filter(user -> (user.getName().equals("Kiruba Ebenezer"))).map(user -> user.getName())
-                    .forEach(user -> Util.print(user));
+            return users;
+            // users.stream().filter(user -> (user.getName().equals("Kiruba Ebenezer"))).map(user -> user.getName())
+            //         .forEach(user -> Util.print(user));
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
+        return null;
     }
 }
