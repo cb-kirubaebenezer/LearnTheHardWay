@@ -1,7 +1,6 @@
 package com.chargebee.app.week1.day2.model;
 import com.chargebee.app.week1.utilities.*;
 import com.chargebee.app.week1.day2.interfaces.*;
-import com.chargebee.app.week1.day2.*;
 public class Mammal implements IBehaviour{
     private String species;
     private String gender;

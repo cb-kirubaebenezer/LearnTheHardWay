@@ -1,6 +1,4 @@
 package com.chargebee.app.week1.day3.model;
-import com.chargebee.app.week1.utilities.*;
-
 public abstract class Car{
     private Integer speed;
     private Double regularPrice;

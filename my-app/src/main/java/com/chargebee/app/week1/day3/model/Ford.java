@@ -1,8 +1,5 @@
 package com.chargebee.app.week1.day3.model;
 
-import com.chargebee.app.week1.utilities.*;
-import com.chargebee.app.week1.day3.model.*;
-
 public class Ford extends Car{
     private Integer year;
     private Integer manufactureDiscount;

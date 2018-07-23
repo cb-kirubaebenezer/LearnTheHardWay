@@ -1,5 +1,4 @@
 package com.chargebee.app.week1.day2.dogcontroller;
-import com.chargebee.app.week1.day2.model.*;
 /**
 *  Model for Labrador retriver dog extends the Dog Builder abstract.
 */

@@ -1,5 +1,4 @@
 package com.chargebee.app.week1.day2.model;
-import com.chargebee.app.week1.day2.*;
 import com.chargebee.app.week1.day2.interfaces.*;
 import com.chargebee.app.week1.utilities.*;
 public class Animal extends Mammal implements IBehaviour {

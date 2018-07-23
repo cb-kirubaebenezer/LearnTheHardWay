@@ -8,13 +8,8 @@ import com.google.gson.FieldNamingPolicy;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
-import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
 import java.io.*;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -102,8 +97,9 @@ public class CsvOperation {
             csvobject.getRecurring(),csvobject.getFirstInvoice(),csvobject.getTaxTotal(),csvobject.getCustomerJsonString());
 
             csvPrinter.flush();
+            csvPrinter.close();
         } catch (Exception e) {
-            //TODO: handle exception
+           
         }
     }
 }

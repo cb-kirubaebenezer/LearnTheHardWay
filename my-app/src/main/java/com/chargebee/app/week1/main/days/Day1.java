@@ -1,7 +1,6 @@
 package com.chargebee.app.week1.main.days;
 import com.chargebee.app.week1.utilities.*;
 import java.util.*;
-import com.chargebee.app.week1.main.days.*;
 import com.chargebee.app.week1.main.service.IDays;
 import com.chargebee.app.week1.day1.*;
 

@@ -1,5 +1,4 @@
 package com.chargebee.app.week1.day2.batcontroller;
-import com.chargebee.app.week1.day2.model.*;
 public class SmallBatBuilder extends BatBuilder{
     public void buildType(){
         bat.setType("Bat");

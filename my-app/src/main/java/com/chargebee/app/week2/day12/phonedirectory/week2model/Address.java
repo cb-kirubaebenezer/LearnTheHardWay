@@ -1,5 +1,4 @@
 package com.chargebee.app.week2.day12.phonedirectory.week2model;
-import java.util.*;
 public class Address{
     private String streetNo;
     private String areaName;

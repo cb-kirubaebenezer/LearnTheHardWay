@@ -2,7 +2,6 @@ package com.chargebee.app.week2.day12;
 
 import java.util.*;
 import com.chargebee.app.week2.util.*;
-import com.chargebee.app.week2.day12.*;
 import com.chargebee.app.week2.day12.phonedirectory.week2model.*;
 
 public class Day12 {

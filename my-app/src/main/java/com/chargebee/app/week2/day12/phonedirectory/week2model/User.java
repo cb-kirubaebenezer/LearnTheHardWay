@@ -4,7 +4,6 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 import com.chargebee.app.week2.util.*;
-import com.chargebee.app.week2.day12.phonedirectory.week2model.*;
 public class User {
     private Integer id;
     private String name;

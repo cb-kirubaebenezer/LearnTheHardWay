@@ -6,8 +6,6 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
-
-import com.chargebee.app.week1.day2.*;
 public class Dog extends Animal implements IBehaviour{
     
     private String name;

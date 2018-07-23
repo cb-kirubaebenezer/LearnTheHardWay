@@ -1,6 +1,5 @@
 package com.chargebee.app.week1.day2.model;
 import com.chargebee.app.week1.utilities.*;
-import com.chargebee.app.week1.day2.*;
 import com.chargebee.app.week1.day2.interfaces.*;
 public class Bat extends Bird implements IBehaviour{
     

@@ -3,8 +3,6 @@ import com.chargebee.app.week2.util.*;
 import java.util.*;
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 public class FileOperation {
@@ -116,6 +114,7 @@ public class FileOperation {
                 out.write(rEntry.getKey().toString() + " - " + rEntry.getValue().toString() + "\n");
             }
             out.close();
+            scanner.close();
         } catch (Exception e) {
             Util.print(e.getMessage());
         }
@@ -135,6 +134,7 @@ public class FileOperation {
                 }
                 lineCount++;
             }
+            scanner.close();
         } catch (Exception e) {
             Util.print(e.getMessage());
         }

@@ -5,8 +5,6 @@ import com.chargebee.app.week1.main.service.IDays;
 import com.chargebee.app.week1.day2.batcontroller.*;
 import com.chargebee.app.week1.day2.dogcontroller.*;
 import com.chargebee.app.week1.day2.model.*;
-import com.chargebee.app.week1.main.days.*;
-
 public class Day2 extends IDays{
 
     public Day2(){
@@ -43,6 +41,7 @@ public class Day2 extends IDays{
                 default:
                     break;
             }
+            reader.close();
         } catch (Exception e) {
             UtilityMethods.print(e.getMessage());
         }

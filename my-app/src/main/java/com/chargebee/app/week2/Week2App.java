@@ -1,16 +1,12 @@
 package com.chargebee.app.week2;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.*;
 import com.chargebee.app.week2.util.*;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.chargebee.app.week2.day12.*;
-import com.chargebee.app.week2.day23.*;
 import com.chargebee.app.week2.day23.csvoperation.CsvOperation;
 import com.chargebee.app.week2.day23.fileoperation.*;
 import com.chargebee.app.week2.day23.school.MyClass;
-import com.chargebee.app.week2.day12.phonedirectory.week2model.*;
 public class Week2App {
     /**
      * Main method to initiate the days operation. Acts as start point.
