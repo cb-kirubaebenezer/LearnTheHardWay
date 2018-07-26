@@ -1,0 +1,11 @@
+.navbar{
+    background-color: #8691f8;
+}
+.navbar-brand{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 3px;
+}
+.body{
+    font-family: 'Montserrat', sans-serif;
+}
