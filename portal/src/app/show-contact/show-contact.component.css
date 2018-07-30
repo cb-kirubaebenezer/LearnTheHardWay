@@ -1,0 +1,11 @@
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-top: 5%;
+    letter-spacing: 3px;
+}
+.card-title{
+    margin: 0 auto;
+    float: none;
+    text-align: center;
+}

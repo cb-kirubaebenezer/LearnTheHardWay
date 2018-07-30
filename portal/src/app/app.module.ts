@@ -8,12 +8,14 @@ import { EditDetailComponent } from './edit-detail/edit-detail.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
+import { ShowContactComponent } from './show-contact/show-contact.component';
 
 const appRoutes: Routes = [
   { path: 'sign_up', component: SignUpComponent },
   { path: 'home', component: HomeComponent },
   { path: 'edit_detail/:id',      component: EditDetailComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'show_contacts', component: ShowContactComponent },
   { path: '**', component: LoginComponent }
 ];
 @NgModule({
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
     LoginComponent,
     EditDetailComponent,
     SignUpComponent,
-    HomeComponent
+    HomeComponent,
+    ShowContactComponent
   ],
   imports: [
     RouterModule.forRoot(
