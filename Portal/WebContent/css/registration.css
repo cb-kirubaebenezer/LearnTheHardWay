@@ -1,0 +1,31 @@
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-top: 5%;
+    letter-spacing: 3px;
+}
+.card-title{
+    margin: 0 auto;
+    float: none;
+    text-align: center;
+}
+#submit_btn{
+    background-color: #ef7a76;
+    border-color: #ef7a76;
+    color: white;
+    height:4.0rem;
+    width: 60%;
+    margin-left: 20%; /* Added */
+    letter-spacing: 1px;
+}
+
+#discard_btn{
+    color: black;
+    text-decoration: underline;
+    width: 60%;
+    font-size: 12px;
+    margin-left: 20%;
+}
+#sign_up_input{
+    height:4.0rem;
+}
