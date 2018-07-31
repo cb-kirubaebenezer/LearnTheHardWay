@@ -59,7 +59,7 @@
                         <button name="register_btn" type="submit" id="submit_btn" class="btn btn-primary">CREATE AN ACCOUNT</button>
                      </div>
                      <div class="row">
-                        <button name="login_btn" type="login_btn" id="discard_btn" class="btn btn-link">Have an account already?</button>
+                        <button name="login_btn" type="submit" id="discard_btn" class="btn btn-link">Have an account already?</button>
                      </div>
                   </form>
                </div>

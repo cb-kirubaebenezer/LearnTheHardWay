@@ -7,6 +7,8 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+
+import dbutil.SQLConnection;
 @WebServlet("/login")
 public class Login extends HttpServlet{
 	 @Override
@@ -16,17 +18,16 @@ public class Login extends HttpServlet{
 			 if (request.getParameter("login_btn") != null) {
 		        	String userid=request.getParameter("usr"); 
 		            String pwd=request.getParameter("pwd"); 
-		            Connection con = null; 
-		            Class.forName("com.mysql.jdbc.Driver").newInstance(); 
-		            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/TEST?autoReconnect=true&useSSL=false","root","Kirubs@1234"); 
+		            Connection con = SQLConnection.getConnection();
 		            Statement st= con.createStatement(); 
 		            ResultSet rs=st.executeQuery("select username,password from USER where username='"+userid.trim()+"'"); 
 		            if(rs.next()) 
 		            { 
 		            	if(rs.getString("password").equals(pwd) && rs.getString("username").equals(userid)) 
 		            	{ 
-		            		 response.sendRedirect("welcome.jsp");
-		            		 return;
+		            		request.getSession(true).setAttribute("userid", userid);
+		            		response.sendRedirect("welcome.jsp");
+		            		return;
 		            	} 
 		            	else 
 		            	{ 
