@@ -14,7 +14,7 @@ public class Logout extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	 try {
 		 if (request.getParameter("edit_btn") != null) {
-	        	
+			 response.sendRedirect("edit_user.jsp");
 	        } else if (request.getParameter("logout_btn") != null) {
 	        	request.getSession().invalidate();
 	        	response.sendRedirect("login.jsp");
