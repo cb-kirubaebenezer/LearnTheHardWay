@@ -10,6 +10,13 @@
       <title>Registration</title>
    </head>
    <body>
+      <%
+         String userid = (String)request.getSession().getAttribute("userid");
+   		 if(userid != null){
+   			 response.sendRedirect("welcome.jsp");
+        	 return;
+   		 }
+   %>
       <div class="container-fluid">
          <div class="row">
             <div class="card col-xs-8 col-sm-8 col-md-6 col-lg-5" style="width: 60%;height: 100%;">

@@ -12,6 +12,13 @@
       <title>Login</title>
    </head>
    <body>
+   <%
+         String userid = (String)request.getSession().getAttribute("userid");
+   		 if(userid != null){
+   			 response.sendRedirect("welcome.jsp");
+        	 return;
+   		 }
+   %>
       <div class="container-fluid">
          <div class="row">
             <div class="card col-xs-8 col-sm-8 col-md-8 col-lg-4" style="width: 30%;height: 100%;">
